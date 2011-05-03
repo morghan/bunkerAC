@@ -1,0 +1,65 @@
+<div id="page">
+	<div id="content">
+		<h2><%= @perfil.id_cuenta %></h2><br>
+		<p>"<%= @perfil.mensaje_personal %>"</p>
+		<img src="<%= @perfil.foto %>" alt="some_text"/>
+		<p>Nombre real:<%= @perfil.nombre_real %></p>
+		<% if getUsuarioActual.email==@perfil.email %>
+			<%= link_to "Editar perfil", edit_perfil_path(@perfil) %>
+		<% end %>
+	</div>
+</div>
+
+
+<% if getUsuarioActual.email==@perfil.email %>
+<div id="sidebar">
+	<ul>
+		<li>
+			<h2>Blaz Blue</h2>
+			<ul>
+			<%if LigaBlazBlue.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+				<li><a href= "<%=edit_liga_blaz_blue_path(LigaBlazBlue.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar personaje</a></li>
+			<%else%>
+				<li><a href= "<%=new_liga_blaz_blue_path%>" >Inscribirse</a></li>
+			<%end%>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<h2>Street Fighter 4</h2>
+			<ul>
+			<%if LigaSf4.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+				<li><a href= "<%=edit_liga_sf4_path(LigaSf4.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar personaje</a></li>
+			<%else%>
+				<li><a href= "<%=new_liga_sf4_path%>" >Inscribirse</a></li>
+			<%end%>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<h2>Street Fighter 3</h2>
+			<ul>
+			<%if LigaSf3.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+				<li><a href= "<%=edit_liga_sf3_path(LigaSf3.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar personaje</a></li>
+			<%else%>
+				<li><a href= "<%=new_liga_sf3_path%>" >Inscribirse</a></li>
+			<%end%>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<h2>Guilty Gear</h2>
+			<ul>
+			<%if LigaGuilty.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+				<li><a href= "<%=edit_liga_guilty_path(LigaGuilty.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar personaje</a></li>
+			<%else%>
+				<li><a href= "<%=new_liga_guilty_path%>" >Inscribirse</a></li>
+			<%end%>
+			</ul>
+		</li>
+	</ul>
+</div>
+<%end%>

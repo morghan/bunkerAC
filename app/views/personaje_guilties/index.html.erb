@@ -1,0 +1,25 @@
+<h1>Listing personaje_guilties</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @personaje_guilties.each do |personaje_guilty| %>
+  <tr>
+    <td><%= personaje_guilty.nombre %></td>
+    <td><%= personaje_guilty.path %></td>
+    <td><%= link_to 'Show', personaje_guilty %></td>
+    <td><%= link_to 'Edit', edit_personaje_guilty_path(personaje_guilty) %></td>
+    <td><%= link_to 'Destroy', personaje_guilty, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Personaje guilty', new_personaje_guilty_path %>

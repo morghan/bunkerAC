@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_cuenta: MyString
+  puntos: 1
+  personaje_principal: MyString
+
+two:
+  id_cuenta: MyString
+  puntos: 1
+  personaje_principal: MyString

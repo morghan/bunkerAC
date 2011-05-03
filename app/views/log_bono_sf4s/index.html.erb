@@ -1,0 +1,29 @@
+<h1>Listing log_bono_sf4s</h1>
+
+<table>
+  <tr>
+    <th>Id cuenta</th>
+    <th>Puntos</th>
+    <th>Motivo</th>
+    <th>Fecha</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @log_bono_sf4s.each do |log_bono_sf4| %>
+  <tr>
+    <td><%= log_bono_sf4.id_cuenta %></td>
+    <td><%= log_bono_sf4.puntos %></td>
+    <td><%= log_bono_sf4.motivo %></td>
+    <td><%= log_bono_sf4.fecha %></td>
+    <td><%= link_to 'Show', log_bono_sf4 %></td>
+    <td><%= link_to 'Edit', edit_log_bono_sf4_path(log_bono_sf4) %></td>
+    <td><%= link_to 'Destroy', log_bono_sf4, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Log bono sf4', new_log_bono_sf4_path %>

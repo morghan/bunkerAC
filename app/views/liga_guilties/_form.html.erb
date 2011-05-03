@@ -1,0 +1,20 @@
+<%= form_for(@liga_guilty) do |f| %>
+  <% if @liga_guilty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@liga_guilty.errors.count, "error") %> prohibited this liga_guilty from being saved:</h2>
+
+      <ul>
+      <% @liga_guilty.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :personaje_principal %><br />
+    <%= f.collection_select :personaje_principal, PersonajeGuilty.all, :nombre, :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

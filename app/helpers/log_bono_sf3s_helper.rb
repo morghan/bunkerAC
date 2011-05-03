@@ -1,0 +1,2 @@
+module LogBonoSf3sHelper
+end

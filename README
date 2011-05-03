@@ -1,0 +1,60 @@
+===================
+#####Scaffolds#####
+===================
+
+
+Perfil
+======
+rails generate scaffold Perfil email:string id_cuenta:string foto:string nombre_real:string mensaje_personal:text
+
+
+Sf3
+===
+rails generate scaffold LigaSf3 id_cuenta:string puntos:integer personaje_principal:string
+
+rails generate scaffold LogPeleaSf3 id_ganador:string id_perdedor:string puntos_ganador:integer puntos_perdedor:integer fecha:date
+
+rails generate scaffold LogBonoSf3 id_cuenta:string puntos:integer motivo:string fecha:date
+
+rails generate scaffold PersonajeSf3 nombre:string path:string
+
+rails generate scaffold MotivoBonoSf3 id_motivo:string descripcion:string evento:string
+
+
+Guilty
+======
+rails generate scaffold LigaGuilty id_cuenta:string puntos:integer personaje_principal:string
+
+rails generate scaffold LogPeleaGuilty id_ganador:string id_perdedor:string puntos_ganador:integer puntos_perdedor:integer fecha:date
+
+rails generate scaffold LogBonoGuilty id_cuenta:string puntos:integer motivo:string fecha:date
+
+rails generate scaffold PersonajeGuilty nombre:string path:string
+
+rails generate scaffold MotivoBonoGuilty id_motivo:string descripcion:string evento:string
+
+
+Sf4
+===
+rails generate scaffold LigaSf4 id_cuenta:string puntos:integer personaje_principal:string
+
+rails generate scaffold LogPeleaSf4 id_ganador:string id_perdedor:string puntos_ganador:integer puntos_perdedor:integer fecha:date
+
+rails generate scaffold LogBonoSf4 id_cuenta:string puntos:integer motivo:string fecha:date
+
+rails generate scaffold PersonajeSf4 nombre:string path:string
+
+rails generate scaffold MotivoBonoSf4 id_motivo:string descripcion:string evento:string
+
+
+BlazBlue
+========
+rails generate scaffold LigaBlazBlue id_cuenta:string puntos:integer personaje_principal:string
+
+rails generate scaffold LogPeleaBlazBlue id_ganador:string id_perdedor:string puntos_ganador:integer puntos_perdedor:integer fecha:date
+
+rails generate scaffold LogBonoBlazBlue id_cuenta:string puntos:integer motivo:string fecha:date
+
+rails generate scaffold PersonajeBlazBlue nombre:string path:string
+
+rails generate scaffold MotivoBonoBlazBlue id_motivo:string descripcion:string evento:string

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @personaje_guilty.nombre %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @personaje_guilty.path %>
+</p>
+
+
+<%= link_to 'Edit', edit_personaje_guilty_path(@personaje_guilty) %> |
+<%= link_to 'Back', personaje_guilties_path %>

@@ -1,0 +1,2 @@
+module LigaBlazBluesHelper
+end

@@ -1,0 +1,2 @@
+module PersonajeBlazBluesHelper
+end

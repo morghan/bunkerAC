@@ -1,0 +1,21 @@
+<article class="fighters">
+<h2>Peleadores</h2>
+<div class="line"></div>
+<div class="contenido">
+  <div class="head">
+	<h4 style="text-align:center">Con&oacute;celos</h4>
+  </div>
+<br />
+<% Perfil.find(:all).each do |perfil| %>
+  <div class="fila">
+   <article class="subA">
+    <p>
+    <p id="idt"><%= link_to perfil.id_cuenta, perfil %></p> 
+    <img id="avt" src="<%= perfil.foto %>" height="70" width="70" alt="ups" align="top"/> 
+    <span id="msj"><%= perfil.mensaje_personal %></span>
+    </p>
+   </article>
+  </div>
+<% end %>
+</div>     
+</article>

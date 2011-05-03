@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id cuenta:</b>
+  <%= @liga_guilty.id_cuenta %>
+</p>
+
+<p>
+  <b>Puntos:</b>
+  <%= @liga_guilty.puntos %>
+</p>
+
+<p>
+  <b>Personaje principal:</b>
+  <%= @liga_guilty.personaje_principal %>
+</p>
+
+
+<%= link_to 'Edit', edit_liga_guilty_path(@liga_guilty) %> |
+<%= link_to 'Back', liga_guilties_path %>

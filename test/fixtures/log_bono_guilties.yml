@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_cuenta: MyString
+  puntos: 1
+  motivo: MyString
+  fecha: 2011-04-21
+
+two:
+  id_cuenta: MyString
+  puntos: 1
+  motivo: MyString
+  fecha: 2011-04-21

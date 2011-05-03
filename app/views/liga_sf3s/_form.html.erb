@@ -1,0 +1,19 @@
+<%= form_for(@liga_sf3) do |f| %>
+  <% if @liga_sf3.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@liga_sf3.errors.count, "error") %> prohibited this liga_sf3 from being saved:</h2>
+      <ul>
+      <% @liga_sf3.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :personaje_principal %><br />
+    <%= f.collection_select :personaje_principal, PersonajeSf3.all, :nombre, :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

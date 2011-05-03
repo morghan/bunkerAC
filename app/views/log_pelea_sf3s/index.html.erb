@@ -1,0 +1,31 @@
+<h1>Listing log_pelea_sf3s</h1>
+
+<table>
+  <tr>
+    <th>Id ganador</th>
+    <th>Id perdedor</th>
+    <th>Puntos ganador</th>
+    <th>Puntos perdedor</th>
+    <th>Fecha</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @log_pelea_sf3s.each do |log_pelea_sf3| %>
+  <tr>
+    <td><%= log_pelea_sf3.id_ganador %></td>
+    <td><%= log_pelea_sf3.id_perdedor %></td>
+    <td><%= log_pelea_sf3.puntos_ganador %></td>
+    <td><%= log_pelea_sf3.puntos_perdedor %></td>
+    <td><%= log_pelea_sf3.fecha %></td>
+    <td><%= link_to 'Show', log_pelea_sf3 %></td>
+    <td><%= link_to 'Edit', edit_log_pelea_sf3_path(log_pelea_sf3) %></td>
+    <td><%= link_to 'Destroy', log_pelea_sf3, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Log pelea sf3', new_log_pelea_sf3_path %>

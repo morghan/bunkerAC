@@ -1,0 +1,55 @@
+<article class="fighters">
+<h2>Guilty Gear</h2>
+<div class="line"></div>
+
+<div class="contenido">
+  <div class="head">
+    <h4 style="text-align:center">heaven or hell...</h4>
+  </div>
+  <br />
+  <img id="fig" src="images/logos/guilty_gear.png" height="150" width="300" alt="ups"/>
+
+  <div class="op">
+    <h3>Menu</h3>
+      <% if user_signed_in? %>
+      <%if getUsuarioActual==nil%>
+      <p>Llena tus datos en el perfil para inscribirte en esta liga</p>
+      <%else%>
+      <%if LigaGuilty.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+      <p><a href= "<%=edit_liga_guilty_path(LigaGuilty.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar Personaje</a></p>
+      <%else%>
+      <p><a href= "<%=new_liga_guilty_path%>" >Inscribirse</a></p>
+      <%end%>
+      <%end%>
+      <%else%>
+      <p>Logeate Primero</p>
+      <%end%>
+  </div>
+  <br />
+
+
+  <%i=0%>
+  <% @liga_guilties.sort_by { |f| [-f.puntos] }.each do |liga_guilty| %>
+  <div class="fila">
+    <article class="subA">
+      
+        <p id="idt"><%= link_to liga_guilty.id_cuenta, Perfil.where(:id_cuenta=>liga_guilty.id_cuenta)[0] %></p> 
+        <img id="avt" src="<%= Perfil.where(:id_cuenta=>liga_guilty.id_cuenta)[0].foto %>" height="70" width="70" alt="ups" align="top"/> <br />
+	<table class="stat">
+	  <tr>
+ 	    <td><ul>
+	      <li id="pos">Posici&oacute;n:  <%=i+=1%></li>
+	      <li id="rnk">Rank:  <%= getRank(liga_guilty.puntos) %></li>
+	      <li id="pts">Puntos:  <%= liga_guilty.puntos %></li>
+            </ul></td>
+	    <td>
+	      <p id="chtr">Personaje<p> 
+              <img id="avt2" src="<%= PersonajeGuilty.where(:nombre=>liga_guilty.personaje_principal)[0].path %>" alt="ups"/>  
+	    </td>
+	  </tr>
+	</table>    
+    </article>
+  </div>
+<% end %>
+</div>
+</article>
