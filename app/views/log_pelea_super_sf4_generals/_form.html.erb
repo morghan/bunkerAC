@@ -1,0 +1,37 @@
+<%= form_for(@log_pelea_super_sf4_general) do |f| %>
+  <% if @log_pelea_super_sf4_general.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@log_pelea_super_sf4_general.errors.count, "error") %> prohibited this log_pelea_super_sf4_general from being saved:</h2>
+
+      <ul>
+      <% @log_pelea_super_sf4_general.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_ganador %><br />
+    <%= f.text_field :id_ganador %>
+  </div>
+  <div class="field">
+    <%= f.label :id_perdedor %><br />
+    <%= f.text_field :id_perdedor %>
+  </div>
+  <div class="field">
+    <%= f.label :puntos_ganador %><br />
+    <%= f.text_field :puntos_ganador %>
+  </div>
+  <div class="field">
+    <%= f.label :puntos_perdedor %><br />
+    <%= f.text_field :puntos_perdedor %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

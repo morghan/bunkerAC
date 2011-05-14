@@ -1,0 +1,2 @@
+module LogPeleaMvc3GeneralsHelper
+end

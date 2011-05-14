@@ -1,0 +1,28 @@
+<%= form_for(@liga_mvc3_general) do |f| %>
+  <% if @liga_mvc3_general.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@liga_mvc3_general.errors.count, "error") %> prohibited this liga_mvc3_general from being saved:</h2>
+
+      <ul>
+      <% @liga_mvc3_general.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :personaje1 %><br />
+    <%= f.collection_select :personaje1, PersonajeMvc3.all, :nombre, :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :personaje2 %><br />
+    <%= f.collection_select :personaje2, PersonajeMvc3.all, :nombre, :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :personaje3 %><br />
+    <%= f.collection_select :personaje3, PersonajeMvc3.all, :nombre, :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module LigaBlazBlueGeneralsHelper
+end

@@ -1,14 +1,20 @@
 Ligabunker::Application.routes.draw do
 
+  resources :log_pelea_mvc3_generals
+
+  resources :liga_mvc3_generals
+
+  resources :log_pelea_blaz_blue_generals
+
+  resources :liga_blaz_blue_generals
+
+  resources :personaje_mvc3s
+
+  resources :log_pelea_super_sf4_generals
+
+  resources :liga_super_sf4_generals
+
   resources :perfils
-
-  resources :log_bono_blaz_blues
-
-  resources :log_bono_sf4s
-
-  resources :log_bono_guilties
-
-  resources :log_bono_sf3s
 
   resources :log_pelea_blaz_blues
 
@@ -18,19 +24,11 @@ Ligabunker::Application.routes.draw do
 
   resources :log_pelea_sf3s
 
-  resources :motivo_bono_blaz_blues
-
   resources :personaje_blaz_blues
-
-  resources :motivo_bono_sf4s
 
   resources :personaje_sf4s
 
-  resources :motivo_bono_guilties
-
   resources :personaje_guilties
-
-  resources :motivo_bono_sf3s
 
   resources :personaje_sf3s
 

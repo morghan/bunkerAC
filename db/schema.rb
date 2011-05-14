@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110425023005) do
+ActiveRecord::Schema.define(:version => 20110514081352) do
+
+  create_table "cuentas", :force => true do |t|
+    t.string   "idcuenta"
+    t.string   "imagen"
+    t.string   "imagenpersonaje"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "liga_blaz_blue_generals", :force => true do |t|
+    t.string   "id_cuenta"
+    t.integer  "puntos"
+    t.string   "personaje_principal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "liga_blaz_blues", :force => true do |t|
     t.string   "id_cuenta"
@@ -28,6 +44,16 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.datetime "updated_at"
   end
 
+  create_table "liga_mvc3_generals", :force => true do |t|
+    t.string   "id_cuenta"
+    t.integer  "puntos"
+    t.string   "personaje1"
+    t.string   "personaje2"
+    t.string   "personaje3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "liga_sf3s", :force => true do |t|
     t.string   "id_cuenta"
     t.integer  "puntos"
@@ -40,6 +66,21 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.string   "id_cuenta"
     t.integer  "puntos"
     t.string   "personaje_principal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "liga_super_sf4_generals", :force => true do |t|
+    t.string   "id_cuenta"
+    t.integer  "puntos"
+    t.string   "personaje_principal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ligasf4s", :force => true do |t|
+    t.string   "idcuenta"
+    t.integer  "puntos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,6 +121,16 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.datetime "updated_at"
   end
 
+  create_table "log_pelea_blaz_blue_generals", :force => true do |t|
+    t.string   "id_ganador"
+    t.string   "id_perdedor"
+    t.integer  "puntos_ganador"
+    t.integer  "puntos_perdedor"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "log_pelea_blaz_blues", :force => true do |t|
     t.string   "id_ganador"
     t.string   "id_perdedor"
@@ -91,6 +142,16 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
   end
 
   create_table "log_pelea_guilties", :force => true do |t|
+    t.string   "id_ganador"
+    t.string   "id_perdedor"
+    t.integer  "puntos_ganador"
+    t.integer  "puntos_perdedor"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_pelea_mvc3_generals", :force => true do |t|
     t.string   "id_ganador"
     t.string   "id_perdedor"
     t.integer  "puntos_ganador"
@@ -115,6 +176,27 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.string   "id_perdedor"
     t.integer  "puntos_ganador"
     t.integer  "puntos_perdedor"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_pelea_super_sf4_generals", :force => true do |t|
+    t.string   "id_ganador"
+    t.string   "id_perdedor"
+    t.integer  "puntos_ganador"
+    t.integer  "puntos_perdedor"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logpeleas", :force => true do |t|
+    t.string   "id1"
+    t.string   "id2"
+    t.string   "idganador"
+    t.integer  "puntosid1"
+    t.integer  "puntosid2"
     t.date     "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -152,6 +234,14 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.datetime "updated_at"
   end
 
+  create_table "motivo_bono_super_sf4_generals", :force => true do |t|
+    t.string   "id_motivo"
+    t.string   "descripcion"
+    t.string   "evento"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "perfils", :force => true do |t|
     t.string   "email"
     t.string   "id_cuenta"
@@ -176,6 +266,13 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.datetime "updated_at"
   end
 
+  create_table "personaje_mvc3s", :force => true do |t|
+    t.string   "nombre"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "personaje_sf3s", :force => true do |t|
     t.string   "nombre"
     t.string   "path"
@@ -190,10 +287,16 @@ ActiveRecord::Schema.define(:version => 20110425023005) do
     t.datetime "updated_at"
   end
 
+  create_table "pruebas", :force => true do |t|
+    t.string   "cadena"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                              :null => false
+    t.string   "encrypted_password",   :limit => 128,                :null => false
+    t.string   "password_salt",                                      :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
