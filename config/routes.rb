@@ -1,5 +1,7 @@
 Ligabunker::Application.routes.draw do
 
+  resources :personaje_super_sf4s
+
   resources :log_pelea_mvc3_generals
 
   resources :liga_mvc3_generals

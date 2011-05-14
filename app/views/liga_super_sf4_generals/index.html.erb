@@ -33,7 +33,7 @@
   <div class="fila">
     <article class="subA">
       
-        <p id="idt"><%= link_to liga_super_sf4s.id_cuenta, Perfil.where(:id_cuenta=>liga_super_sf4.id_cuenta)[0] %></p> 
+        <p id="idt"><%= link_to liga_super_sf4.id_cuenta, Perfil.where(:id_cuenta=>liga_super_sf4.id_cuenta)[0] %></p> 
         <img id="avt" src="<%= Perfil.where(:id_cuenta=>liga_super_sf4.id_cuenta)[0].foto %>" height="70" width="70" alt="ups" align="top"/> <br />
 	<table class="stat">
 	  <tr>
