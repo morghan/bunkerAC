@@ -43,12 +43,33 @@ class LogPeleaSuperSf4GeneralsController < ApplicationController
     @log_pelea_super_sf4_general = LogPeleaSuperSf4General.new(params[:log_pelea_super_sf4_general])
 
     respond_to do |format|
-      if @log_pelea_super_sf4_general.save
-        format.html { redirect_to(@log_pelea_super_sf4_general, :notice => 'Log pelea super sf4 general was successfully created.') }
-        format.xml  { render :xml => @log_pelea_super_sf4_general, :status => :created, :location => @log_pelea_super_sf4_general }
+
+      if LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador).count!=0 && LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor).count!=0
+        #get info de los usuarios
+        id1=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador)
+        id2=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor)
+
+        #calculo de cambio de puntuacion en el ranking
+        @log_pelea_super_sf4_general.puntos_ganador=calcularPuntosGanador(id1[0].puntos,id2[0].puntos)
+        @log_pelea_super_sf4_general.puntos_perdedor=-calcularPuntosPerdedor(id1[0].puntos,id2[0].puntos)
+
+        #salvar los datos
+        id1[0].puntos+=@log_pelea_super_sf4_general.puntos_ganador
+        id1[0].save
+
+        id2[0].puntos+=@log_pelea_super_sf4_general.puntos_perdedor
+        id2[0].save
+        #Fin calculos y saves externos
+
+        if @log_pelea_super_sf4_general.save
+          format.html { redirect_to(@log_pelea_super_sf4_general, :notice => 'Log pelea super sf4 general was successfully created.') }
+          format.xml  { render :xml => @log_pelea_super_sf4_general, :status => :created, :location => @log_pelea_super_sf4_general }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @log_pelea_super_sf4_general.errors, :status => :unprocessable_entity }
+        end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @log_pelea_super_sf4_general.errors, :status => :unprocessable_entity }
+          format.html { redirect_to(@log_pelea_super_sf4_general, :notice => 'Error: al menos uno de los jugadores no esta inscrito.') }
       end
     end
   end
@@ -72,7 +93,21 @@ class LogPeleaSuperSf4GeneralsController < ApplicationController
   # DELETE /log_pelea_super_sf4_generals/1
   # DELETE /log_pelea_super_sf4_generals/1.xml
   def destroy
+    a=10/0
     @log_pelea_super_sf4_general = LogPeleaSuperSf4General.find(params[:id])
+
+
+    #get info de los usuarios
+    id1=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador)
+    id2=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor)
+    #salvar los datos
+    id1[0].puntos-=@log_pelea_super_sf4_general.puntos_ganador
+    id1[0].save
+    id2[0].puntos-=@log_pelea_super_sf4_general.puntos_perdedor
+    id2[0].save
+    #Fin de saves externos
+
+
     @log_pelea_super_sf4_general.destroy
 
     respond_to do |format|

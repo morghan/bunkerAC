@@ -22,6 +22,14 @@
     <td><%= link_to 'Show', log_pelea_super_sf4_general %></td>
     <td><%= link_to 'Edit', edit_log_pelea_super_sf4_general_path(log_pelea_super_sf4_general) %></td>
     <td><%= link_to 'Destroy', log_pelea_super_sf4_general, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "Delete this component", log_pelea_super_sf4_general_path(log_pelea_super_sf4_general), :method => :delete %></td>
+<td>
+<%= link_to "Delete this componenttttttt",
+  { :controller => "log_pelea_super_sf4_generals",
+  :id => log_pelea_super_sf4_general.id,
+  :action => "destroy"},
+  :confirm => "Are you sure you want to delete this device component?" %>
+</td>
   </tr>
 <% end %>
 </table>

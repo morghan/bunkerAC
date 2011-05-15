@@ -13,19 +13,11 @@
 
   <div class="field">
     <%= f.label :id_ganador %><br />
-    <%= f.text_field :id_ganador %>
+    <%= f.collection_select :id_ganador, Perfil.all, :id_cuenta, :id_cuenta %>
   </div>
   <div class="field">
     <%= f.label :id_perdedor %><br />
-    <%= f.text_field :id_perdedor %>
-  </div>
-  <div class="field">
-    <%= f.label :puntos_ganador %><br />
-    <%= f.text_field :puntos_ganador %>
-  </div>
-  <div class="field">
-    <%= f.label :puntos_perdedor %><br />
-    <%= f.text_field :puntos_perdedor %>
+    <%= f.collection_select :id_perdedor, Perfil.all, :id_cuenta, :id_cuenta %>
   </div>
   <div class="field">
     <%= f.label :fecha %><br />
