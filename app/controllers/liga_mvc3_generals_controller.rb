@@ -44,7 +44,7 @@ class LigaMvc3GeneralsController < ApplicationController
 
     respond_to do |format|
       if LigaMvc3General.where(:id_cuenta => getUsuarioActual.id_cuenta).size==0
-        @liga_mvc3_general.id_cuenta=getUsuarioActual.id_cuenta
+        @liga_mvc3_general.cuenta=getUsuarioActual.id_cuenta
         @liga_mvc3_general.puntos=500
         if @liga_mvc3_general.save
           format.html { redirect_to(@liga_mvc3_general, :notice => 'Liga mvc3 general was successfully created.') }

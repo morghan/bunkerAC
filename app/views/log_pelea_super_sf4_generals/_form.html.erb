@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id_ganador %><br />
-    <%= f.collection_select :id_ganador, Perfil.all, :id_cuenta, :id_cuenta %>
+    <%= f.label :ganador %><br />
+    <%= f.collection_select :ganador, Perfil.all, :id_cuenta, :username %>
   </div>
   <div class="field">
-    <%= f.label :id_perdedor %><br />
-    <%= f.collection_select :id_perdedor, Perfil.all, :id_cuenta, :id_cuenta %>
+    <%= f.label :perdedor %><br />
+    <%= f.collection_select :perdedor, Perfil.all, :id_cuenta, :username %>
   </div>
   <div class="field">
     <%= f.label :fecha %><br />

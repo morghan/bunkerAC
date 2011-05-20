@@ -43,10 +43,10 @@ class LogPeleaBlazBlueGeneralsController < ApplicationController
     @log_pelea_blaz_blue_general = LogPeleaBlazBlueGeneral.new(params[:log_pelea_blaz_blue_general])
 
     respond_to do |format|
-      if LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_ganador).count!=0 && LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_perdedor).count!=0
+      if LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.ganador).count!=0 && LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.perdedor).count!=0
         #get info de los usuarios
-        id1=LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_ganador)
-        id2=LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_perdedor)
+        id1=LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.ganador)
+        id2=LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.perdedor)
 
         #calculo de cambio de puntuacion en el ranking
         @log_pelea_blaz_blue_general.puntos_ganador=calcularPuntosGanador(id1[0].puntos,id2[0].puntos)
@@ -93,8 +93,8 @@ class LogPeleaBlazBlueGeneralsController < ApplicationController
     @log_pelea_blaz_blue_general = LogPeleaBlazBlueGeneral.find(params[:id])
 
     #get info de los usuarios
-    id1=LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_ganador)
-    id2=LigaBlazBlueGeneral.where(:id_cuenta=>@log_pelea_blaz_blue_general.id_perdedor)
+    id1=LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.ganador)
+    id2=LigaBlazBlueGeneral.where(:cuenta=>@log_pelea_blaz_blue_general.perdedor)
     #salvar los datos
     id1[0].puntos-=@log_pelea_blaz_blue_general.puntos_ganador
     id1[0].save

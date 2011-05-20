@@ -15,8 +15,8 @@
       <%if getUsuarioActual==nil%>
       <p>Llena tus datos en el perfil para inscribirte en esta liga</p>
       <%else%>
-      <%if LigaSuperSf4General.where(:id_cuenta=>getUsuarioActual.id_cuenta).size!=0%>
-      <p><a href= "<%=edit_liga_super_sf4_general_path(LigaSuperSf4General.where(:id_cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar Personaje</a></p>
+      <%if LigaSuperSf4General.where(:cuenta=>getUsuarioActual.id_cuenta).size!=0%>
+      <p><a href= "<%=edit_liga_super_sf4_general_path(LigaSuperSf4General.where(:cuenta=>getUsuarioActual.id_cuenta)[0]);%>" >Cambiar Personaje</a></p>
       <%else%>
       <p><a href= "<%=new_liga_super_sf4_general_path%>" >Inscribirse</a></p>
       <%end%>
@@ -33,8 +33,8 @@
   <div class="fila">
     <article class="subA">
       
-        <p id="idt"><%= link_to liga_super_sf4.id_cuenta, Perfil.where(:id_cuenta=>liga_super_sf4.id_cuenta)[0] %></p> 
-        <img id="avt" src="<%= Perfil.where(:id_cuenta=>liga_super_sf4.id_cuenta)[0].foto %>" height="70" width="70" alt="ups" align="top"/> <br />
+        <p id="idt"><%= link_to Perfil.where(:id_cuenta=>liga_super_sf4.cuenta)[0].username, Perfil.where(:id_cuenta=>liga_super_sf4.cuenta)[0] %></p> 
+        <img id="avt" src="<%= Perfil.where(:id_cuenta=>liga_super_sf4.cuenta)[0].foto %>" height="70" width="70" alt="ups" align="top"/> <br />
 	<table class="stat">
 	  <tr>
  	    <td><ul>

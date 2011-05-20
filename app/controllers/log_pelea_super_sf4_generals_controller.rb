@@ -44,10 +44,10 @@ class LogPeleaSuperSf4GeneralsController < ApplicationController
 
     respond_to do |format|
 
-      if LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador).count!=0 && LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor).count!=0
+      if LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.ganador).count!=0 && LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.perdedor).count!=0
         #get info de los usuarios
-        id1=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador)
-        id2=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor)
+        id1=LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.ganador)
+        id2=LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.perdedor)
 
         #calculo de cambio de puntuacion en el ranking
         @log_pelea_super_sf4_general.puntos_ganador=calcularPuntosGanador(id1[0].puntos,id2[0].puntos)
@@ -98,8 +98,8 @@ class LogPeleaSuperSf4GeneralsController < ApplicationController
 
 
     #get info de los usuarios
-    id1=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_ganador)
-    id2=LigaSuperSf4General.where(:id_cuenta=>@log_pelea_super_sf4_general.id_perdedor)
+    id1=LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.ganador)
+    id2=LigaSuperSf4General.where(:cuenta=>@log_pelea_super_sf4_general.perdedor)
     #salvar los datos
     id1[0].puntos-=@log_pelea_super_sf4_general.puntos_ganador
     id1[0].save

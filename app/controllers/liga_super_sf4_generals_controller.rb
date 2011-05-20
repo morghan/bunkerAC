@@ -44,7 +44,7 @@ class LigaSuperSf4GeneralsController < ApplicationController
 
     respond_to do |format|
       if LigaSuperSf4General.where(:id_cuenta => getUsuarioActual.id_cuenta).size==0
-        @liga_super_sf4_general.id_cuenta=getUsuarioActual.id_cuenta
+        @liga_super_sf4_general.cuenta=getUsuarioActual.id_cuenta
         @liga_super_sf4_general.puntos=500
         if @liga_super_sf4_general.save
           format.html { redirect_to(@liga_super_sf4_general, :notice => 'Liga super sf4 general was successfully created.') }

@@ -43,10 +43,10 @@ class LogPeleaMvc3GeneralsController < ApplicationController
     @log_pelea_mvc3_general = LogPeleaMvc3General.new(params[:log_pelea_mvc3_general])
 
     respond_to do |format|
-      if LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_ganador).count!=0 && LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_perdedor).count!=0
+      if LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.ganador).count!=0 && LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.perdedor).count!=0
         #get info de los usuarios
-        id1=LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_ganador)
-        id2=LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_perdedor)
+        id1=LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.ganador)
+        id2=LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.perdedor)
 
         #calculo de cambio de puntuacion en el ranking
         @log_pelea_mvc3_general.puntos_ganador=calcularPuntosGanador(id1[0].puntos,id2[0].puntos)
@@ -93,8 +93,8 @@ class LogPeleaMvc3GeneralsController < ApplicationController
     @log_pelea_mvc3_general = LogPeleaMvc3General.find(params[:id])
 
     #get info de los usuarios
-    id1=LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_ganador)
-    id2=LigaMvc3.where(:id_cuenta=>@log_pelea_mvc3_general.id_perdedor)
+    id1=LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.ganador)
+    id2=LigaMvc3.where(:cuenta=>@log_pelea_mvc3_general.perdedor)
     #salvar los datos
     id1[0].puntos-=@log_pelea_mvc3_general.puntos_ganador
     id1[0].save

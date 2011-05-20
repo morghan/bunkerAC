@@ -44,7 +44,7 @@ class LigaBlazBlueGeneralsController < ApplicationController
 
     respond_to do |format|
       if LigaBlazBlueGeneral.where(:id_cuenta => getUsuarioActual.id_cuenta).size==0
-        @liga_blaz_blue_general.id_cuenta=getUsuarioActual.id_cuenta
+        @liga_blaz_blue_general.cuenta=getUsuarioActual.id_cuenta
         @liga_blaz_blue_general.puntos=500
         if @liga_blaz_blue_general.save
           format.html { redirect_to(@liga_blaz_blue_general, :notice => 'Liga blaz blue general was successfully created.') }
