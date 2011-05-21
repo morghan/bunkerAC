@@ -43,7 +43,7 @@ class LigaMvc3GeneralsController < ApplicationController
     @liga_mvc3_general = LigaMvc3General.new(params[:liga_mvc3_general])
 
     respond_to do |format|
-      if LigaMvc3General.where(:id_cuenta => getUsuarioActual.id_cuenta).size==0
+      if LigaMvc3General.where(:cuenta => getUsuarioActual.id_cuenta).size==0
         @liga_mvc3_general.cuenta=getUsuarioActual.id_cuenta
         @liga_mvc3_general.puntos=500
         if @liga_mvc3_general.save

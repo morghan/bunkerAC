@@ -43,7 +43,7 @@ class LigaBlazBlueGeneralsController < ApplicationController
     @liga_blaz_blue_general = LigaBlazBlueGeneral.new(params[:liga_blaz_blue_general])
 
     respond_to do |format|
-      if LigaBlazBlueGeneral.where(:id_cuenta => getUsuarioActual.id_cuenta).size==0
+      if LigaBlazBlueGeneral.where(:cuenta => getUsuarioActual.id_cuenta).size==0
         @liga_blaz_blue_general.cuenta=getUsuarioActual.id_cuenta
         @liga_blaz_blue_general.puntos=500
         if @liga_blaz_blue_general.save

@@ -44,6 +44,7 @@ class PerfilsController < ApplicationController
 
     respond_to do |format|
       @perfil.email=current_user.email
+      @perfil.id_cuenta=Perfil.last.id_cuenta+1
       if @perfil.save
         format.html { redirect_to(@perfil, :notice => 'Perfil was successfully created.') }
         format.xml  { render :xml => @perfil, :status => :created, :location => @perfil }
