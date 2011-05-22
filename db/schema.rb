@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518065852) do
+ActiveRecord::Schema.define(:version => 20110522074424) do
 
   create_table "cuentas", :force => true do |t|
     t.string   "idcuenta"
@@ -244,13 +244,16 @@ ActiveRecord::Schema.define(:version => 20110518065852) do
 
   create_table "perfils", :force => true do |t|
     t.string   "email"
-    t.string   "foto"
     t.string   "nombre_real"
     t.text     "mensaje_personal"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
     t.integer  "id_cuenta"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "personaje_blaz_blues", :force => true do |t|

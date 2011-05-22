@@ -34,7 +34,12 @@
     <article class="subA">
       
         <p id="idt"><%= link_to Perfil.where(:id_cuenta=>liga_blaz_blue.cuenta)[0].username, Perfil.where(:id_cuenta=>liga_blaz_blue.cuenta)[0] %></p> 
-        <img id="avt" src="<%= Perfil.where(:id_cuenta=>liga_blaz_blue.cuenta)[0].foto %>" height="70" width="70" alt="ups" align="top"/> <br />
+    <% perfil = Perfil.where(:id_cuenta=>liga_blaz_blue.cuenta)[0] %>
+    <% if perfil.avatar.exists? then %>
+    <span id="avt"><%= image_tag perfil.avatar.url(:thumb) %></span>
+    <% else %>
+    <p id="avt"><b>Ups, No posee Avatar.</b></p>
+    <% end %><br />
 	<table class="stat">
 	  <tr>
  	    <td><ul>

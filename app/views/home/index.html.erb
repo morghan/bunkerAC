@@ -11,7 +11,11 @@
    <article class="subA">
     <p>
     <p id="idt"><%= link_to perfil.username, perfil %></p> 
-    <img id="avt" src="<%= perfil.foto %>" height="70" width="70" alt="ups" align="top"/> 
+    <% if perfil.avatar.exists? then %>
+    <span id="avt"><%= image_tag perfil.avatar.url(:thumb) %></span>
+    <% else %>
+    <p id="avt"><b>Ups, No posee Avatar.</b></p>
+    <% end %>
     <span id="msj"><%= perfil.mensaje_personal %></span>
     </p>
    </article>

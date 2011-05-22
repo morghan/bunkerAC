@@ -2,7 +2,11 @@
 	<div id="content">
 		<h2><%= @perfil.id_cuenta %></h2><br>
 		<p>"<%= @perfil.mensaje_personal %>"</p>
-		<img src="<%= @perfil.foto %>" alt="some_text"/>
+		<% if @perfil.avatar.exists? then %>
+		<%= image_tag @perfil.avatar.url %>
+		<% else %>
+		<p><b>No posee Avatar. Edite su perfil para cargar una imagen.</b></p>
+		<% end %> <br />
 		<p>Nombre real:<%= @perfil.nombre_real %></p>
 		<% if getUsuarioActual.email==@perfil.email %>
 			<%= link_to "Editar perfil", edit_perfil_path(@perfil) %>
